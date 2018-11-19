@@ -4,6 +4,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * This is a UnitTest that tests the User class
+ */
 public class UserTest {
 
     @Test
