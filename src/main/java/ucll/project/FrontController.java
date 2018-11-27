@@ -63,6 +63,11 @@ public class FrontController extends HttpServlet
 
 
         // logic to handle what controller
+        System.out.println(String.format("%s %s\nResource = %s, Action = %s",
+                request.getMethod(), requestURI,
+                requestResource, requestAction
+        ));
+
 
         if (method.equals("GET") && requestResource.equals("user") && requestAction.equals("login")){
             userController.getLogin(request, response);
