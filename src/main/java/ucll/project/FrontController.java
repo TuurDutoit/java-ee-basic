@@ -17,9 +17,9 @@ import java.io.IOException;
  * decide which controller to call.
  */
 @WebServlet(urlPatterns = "/", loadOnStartup = 1)
-public class FrontController extends HttpServlet
-{
+public class FrontController extends HttpServlet {
     private UserRepository userRepository;
+
     public FrontController() {
         super();
         // You could switch here based on config
@@ -37,9 +37,10 @@ public class FrontController extends HttpServlet
     private void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Get the request URI and parse it
         String requestURI = request.getRequestURI();
+
         String method = request.getMethod();
         String requestResource;
-        String requestAction =  "";
+        String requestAction = "";
         if (requestURI.equals("/"))
             requestResource = "index";
         else {
@@ -57,7 +58,7 @@ public class FrontController extends HttpServlet
         UserController userController = new UserController(userRepository);
 
         if (request.getSession().getAttribute("userid") != null) {
-            int userId = (int)request.getSession().getAttribute("userid");
+            int userId = (int) request.getSession().getAttribute("userid");
             request.setAttribute("user", userRepository.get(userId));
         }
 
@@ -69,20 +70,20 @@ public class FrontController extends HttpServlet
         ));
 
 
-        if (method.equals("GET") && requestResource.equals("user") && requestAction.equals("login")){
+        if (method.equals("GET") && requestResource.equals("user") && requestAction.equals("login")) {
             userController.getLogin(request, response);
             return; // stop execution
         }
-        if (method.equals("POST") && requestResource.equals("user") && requestAction.equals("login")){
+        if (method.equals("POST") && requestResource.equals("user") && requestAction.equals("login")) {
             userController.postLogin(request, response);
             return;
         }
-        if (/* any method */         requestResource.equals("user") && requestAction.equals("signup")){
+        if (/* any method */         requestResource.equals("user") && requestAction.equals("signup")) {
             userController.handleSignup(request, response);
             return;
         }
 
-        if (/* any method */         requestResource.equals("user") && requestAction.equals("logout")){
+        if (/* any method */         requestResource.equals("user") && requestAction.equals("logout")) {
             userController.handleLogout(request, response);
             return;
         }
