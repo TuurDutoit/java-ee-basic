@@ -12,7 +12,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <h1 class="text-center login-title">Create an account</h1>
+            <h1 id="pageTitle" class="text-center login-title">Create an account</h1>
             <div class="account-wall">
                 <img class="profile-img" src="/static/css/user.png" alt="">
                 <form class="form-signup" method="post">

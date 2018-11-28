@@ -14,7 +14,7 @@
     <div class="row">
 
         <div class="col-md-8 well">
-            <h2>Hello world!</h2>
+            <h2 id="pageTitle">Hello world!</h2>
         </div>
     </div>
 </div>

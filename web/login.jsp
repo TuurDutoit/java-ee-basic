@@ -13,7 +13,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <h2 class="text-center login-title">Please sign in</h2>
+            <h2 id="pageTitle" class="text-center login-title">Please sign in</h2>
             <div class="account-wall">
                 <img class="profile-img" src="/static/css/user.png" alt="">
                 <form class="form-signin" method="post">

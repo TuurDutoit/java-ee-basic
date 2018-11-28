@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <nav class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-inverse">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+    <button id="navBarButton" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
             data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false"
             aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -15,17 +15,17 @@
                 <c:if test="${empty user}">
                     <%-- The c:out will return active when the requested url matches /user/login --%>
                     <li class="nav-item <c:out value = "${requestScope['javax.servlet.forward.request_uri'] == '/user/login' ? 'active' : ''}"/>">
-                        <a class="nav-link" href="/user/login">Login <span class="sr-only">(current)</span></a>
+                        <a id="loginLink" class="nav-link" href="/user/login">Login <span class="sr-only">(current)</span></a>
                     </li>
 
                     <li class="nav-item <c:out value = "${requestScope['javax.servlet.forward.request_uri'] == '/user/signup' ? 'active' : ''}"/>">
-                        <a class="nav-link" href="/user/signup">Sign-up</a>
+                        <a id="signUpLink" class="nav-link" href="/user/signup">Sign-up</a>
                     </li>
                 </c:if>
 
                 <c:if test="${not empty user}">
                     <li class="nav-item">
-                        <a class="nav-link" href="/user/logout">Logout, ${user.userName}</a>
+                        <a id="logoutLink" class="nav-link" href="/user/logout">Logout, ${user.userName}</a>
                     </li>
                 </c:if>
 
