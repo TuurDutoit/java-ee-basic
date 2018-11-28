@@ -57,5 +57,78 @@ public class SeleniumTest {
         assertTrue(header.getText().equals("Please sign in"));
     }
 
+    @Test
+    public void LoginTestExpectSuccess(){
+        driver.get("http://localhost:8080/user/login");
+        WebElement userNameInput = driver.findElement(By.id("usernameInput"));
+        userNameInput.sendKeys("user");
+        WebElement passwordInput = driver.findElement(By.id("passwordInput"));
+        passwordInput.sendKeys("user");
+        WebElement loginButton = driver.findElement(By.id("loginButton"));
+        loginButton.click();
+
+        WebElement pageTitle = driver.findElement(By.id("pageTitle"));
+        assertTrue(pageTitle.getText().equals("Hello world!"));
+    }
+
+    @Test
+    public void loginTestWithoutUsernameExpectFailure(){
+        driver.get("http://localhost:8080/user/login");
+        WebElement passwordInput = driver.findElement(By.id("passwordInput"));
+        passwordInput.sendKeys("user");
+        WebElement loginButton = driver.findElement(By.id("loginButton"));
+        loginButton.click();
+
+        WebElement pageTitle = driver.findElement(By.id("pageTitle"));
+        assertTrue(pageTitle.getText().equals("Please sign in"));
+    }
+
+    @Test
+    public void loginTestWithInvalidUsernameExpectFailure(){
+        driver.get("http://localhost:8080/user/login");
+
+        WebElement userNameInput = driver.findElement(By.id("usernameInput"));
+        userNameInput.sendKeys("qwe");
+        WebElement passwordInput = driver.findElement(By.id("passwordInput"));
+        passwordInput.sendKeys("user");
+        WebElement loginButton = driver.findElement(By.id("loginButton"));
+        loginButton.click();
+
+        WebElement pageTitle = driver.findElement(By.id("pageTitle"));
+        assertTrue(pageTitle.getText().equals("Please sign in"));
+
+        WebElement errorMessage = driver.findElement(By.id("errorMessage"));
+        assertTrue(errorMessage.getText().equals("Invalid username"));
+    }
+
+    @Test
+    public void loginTestWithoutPasswordExpectFailure(){
+        driver.get("http://localhost:8080/user/login");
+        WebElement userNameInput = driver.findElement(By.id("usernameInput"));
+        userNameInput.sendKeys("user");
+        WebElement loginButton = driver.findElement(By.id("loginButton"));
+        loginButton.click();
+
+        WebElement pageTitle = driver.findElement(By.id("pageTitle"));
+        assertTrue(pageTitle.getText().equals("Please sign in"));
+    }
+
+    @Test
+    public void loginTestWithInvalidPasswordExpectFailure(){
+        driver.get("http://localhost:8080/user/login");
+        WebElement userNameInput = driver.findElement(By.id("usernameInput"));
+        userNameInput.sendKeys("user");
+        WebElement passwordInput = driver.findElement(By.id("passwordInput"));
+        passwordInput.sendKeys("qwe");
+        WebElement loginButton = driver.findElement(By.id("loginButton"));
+        loginButton.click();
+
+        WebElement pageTitle = driver.findElement(By.id("pageTitle"));
+        assertTrue(pageTitle.getText().equals("Please sign in"));
+
+        WebElement errorMessage = driver.findElement(By.id("errorMessage"));
+        assertTrue(errorMessage.getText().equals("Invalid password"));
+    }
+
 
 }

@@ -17,10 +17,10 @@
             <div class="account-wall">
                 <img class="profile-img" src="/static/css/user.png" alt="">
                 <form class="form-signin" method="post">
-                <input type="text" name="username" class="form-control" placeholder="Username" value="${username}" required autofocus>
-                <input type="password" name="password" class="form-control" placeholder="Password" required>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-                    <p class="error">${error}</p>
+                <input id="usernameInput" type="text" name="username" class="form-control" placeholder="Username" value="${username}" required autofocus>
+                <input id="passwordInput" type="password" name="password" class="form-control" placeholder="Password" required>
+                <button id="loginButton" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                    <p id="errorMessage" class="error">${error}</p>
                 </form>
             </div>
             <a href="./signup" class="text-center new-account">Create an account</a><br><br>
