@@ -11,11 +11,6 @@ public class SignUpPage {
         this.driver = driver;
     }
 
-    public SignUpPage navigateTo(){
-        driver.get("http://localhost:8080/user/signup");
-        return this;
-    }
-
     public String getPageTitle(){
         return driver.findElement(By.id("pageTitle")).getText();
     }

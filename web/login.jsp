@@ -19,7 +19,7 @@
                 <form class="form-signin" method="post">
                 <input id="usernameInput" type="text" name="username" class="form-control" placeholder="Username" value="${username}" required autofocus>
                 <input id="passwordInput" type="password" name="password" class="form-control" placeholder="Password" required>
-                <button id="loginButton" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                <button id="submitButton" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
                     <p id="errorMessage" class="error">${error}</p>
                 </form>
             </div>

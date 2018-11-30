@@ -30,7 +30,6 @@ public class HomePage {
     }
 
     public String getPageTitle(){
-        //return driver.findElement(By.id("pageTitle")).getText();
         return pageTitle.getText();
     }
 

@@ -1,6 +1,5 @@
 package ucll.project.ui.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,8 +21,8 @@ public class LoginPage {
     @FindBy(id="passwordInput")
     private WebElement passwordInput;
 
-    @FindBy(id="loginButton")
-    private WebElement loginButton;
+    @FindBy(id="submitButton")
+    private WebElement submitButton;
 
     public LoginPage(WebDriver driver){
         this.driver = driver;
@@ -35,7 +34,6 @@ public class LoginPage {
     }
 
     public String getPageTitle(){
-        //return driver.findElement(By.id("pageTitle")).getText();
         return pageTitle.getText();
     }
 
@@ -43,12 +41,17 @@ public class LoginPage {
         return errorMessage.getText();
     }
 
-    public void enterUsername(String username){
+    private void enterUsername(String username){
         usernameInput.sendKeys(username);
     }
 
-    public void enterPassword(String password){
+    private void enterPassword(String password){
         passwordInput.sendKeys(password);
+    }
+
+    private HomePage clickLoginButton() {
+        submitButton.click();
+        return new HomePage(driver);
     }
 
     public HomePage loginAs(String username,String password){
@@ -65,9 +68,6 @@ public class LoginPage {
         return new LoginPage(driver);
     }
 
-    public HomePage clickLoginButton() {
-        loginButton.click();
-        return new HomePage(driver);
-    }
+
 
 }
