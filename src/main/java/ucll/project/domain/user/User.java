@@ -29,7 +29,7 @@ public class User {
         setRole(role);
     }
 
-    protected void hashAndSetPassword(String password) {
+    public void hashAndSetPassword(String password) {
         if (password.length() < 4) {
             throw new IllegalArgumentException("Too short password!");
         }
