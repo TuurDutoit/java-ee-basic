@@ -7,6 +7,10 @@ agent {
         stage('build') {
             steps {
                 sh 'mvn package -DskipTests'
+            }
+        }
+        stage('test'){
+            steps {
                 sh 'rm -rf /usr/local/tomcat/webapps/ROOT'
                 sh 'cp -r target/*.war /usr/local/tomcat/webapps/ROOT.war'
                 sh '/usr/local/tomcat/bin/startup.sh'
