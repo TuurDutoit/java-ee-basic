@@ -82,12 +82,12 @@ public class UserTest {
 
         LoginPage loginPage = signUpPage.clickSubmitButton();
 
-        HomePage homePage = loginPage.loginAs(user.getUserName(),password);
-        assertEquals("Logout, "+ user.getUserName(), homePage.getLogoutLinkText());
-        assertEquals("Logout, "+ user.getUserName(), homePage.getLogoutLinkText());
-
-        homePage = homePage.clickLogoutLink();
-        assertEquals("Hello world!",homePage.getPageTitle());
+//        HomePage homePage = loginPage.loginAs(user.getUserName(),password);
+//        assertEquals("Logout, "+ user.getUserName(), homePage.getLogoutLinkText());
+//        assertEquals("Logout, "+ user.getUserName(), homePage.getLogoutLinkText());
+//
+//        homePage = homePage.clickLogoutLink();
+//        assertEquals("Hello world!",homePage.getPageTitle());
     }
 
 
