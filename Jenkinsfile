@@ -1,11 +1,12 @@
 pipeline {
-    agent { 
-      docker { image 'thomascorthouts/maventest-selenium:8'}
-    }
+agent {
+    label 'docker' 
+	}
 
     stages {
         stage('build') {
-          steps {
+          agent{ docker{ image 'thomascorthouts/maventest-selenium:8'} }
+	  steps {
               sh 'mvn package -DskipTests'
               sh 'rm -rf /usr/local/tomcat/webapps/ROOT'
               sh 'cp -r /tmp/java-project/out/artifacts/* /usr/local/tomcat/webapps/ROOT'
