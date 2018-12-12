@@ -19,6 +19,9 @@ public class HomePage {
     @FindBy(id="signUpLink")
     private WebElement signUpLink;
 
+    @FindBy(id="logoutLink")
+    private WebElement logoutLink;
+
     public HomePage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver,this);
@@ -41,6 +44,15 @@ public class HomePage {
     public SignUpPage clickSignUp(){
         signUpLink.click();
         return new SignUpPage(driver);
+    }
+
+    public HomePage clickLogoutLink(){
+        logoutLink.click();
+        return new HomePage(driver);
+    }
+
+    public String getLogoutLinkText(){
+        return logoutLink.getText();
     }
 
 }
