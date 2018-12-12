@@ -5,6 +5,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import ucll.project.domain.user.Gender;
 import ucll.project.domain.user.Role;
 import ucll.project.domain.user.User;
@@ -25,7 +26,9 @@ public class UserTest {
     public static void SetupChromeDriver(){
         // Setup the Chrome driver for the whole class
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless","--no-sandbox");
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
     }
 
