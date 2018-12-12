@@ -17,7 +17,7 @@ agent {
         stage('deploy') {
             steps {
                 sshagent(credentials: ['fd562910-3591-41b1-ac16-de98108e2b61']) {
-                    sh 'scp -p 22345 target/*.war build@tomcat.projectweek.be:/opt/tomcat/webapps/app.war'
+                    sh 'scp -P 22345 target/*.war build@tomcat.projectweek.be:/opt/tomcat/webapps/app.war'
                 }
             }
         }
