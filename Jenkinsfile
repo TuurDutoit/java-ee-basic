@@ -1,9 +1,9 @@
 pipeline {
-    agent any
+    agent { 
+      docker { image 'thomascorthouts/maventest-selenium:8'}
+    }
+
     stages {
-        stage('Clone sources') {
-          git url: 'https://github.com/TuurDutoit/java-ee-basic'
-        }
         stage('build') {
           steps {
               sh 'mvn package -DskipTests'
