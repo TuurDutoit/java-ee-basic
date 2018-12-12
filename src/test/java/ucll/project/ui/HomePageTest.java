@@ -6,6 +6,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import ucll.project.ui.pages.HomePage;
 import ucll.project.ui.pages.LoginPage;
 import ucll.project.ui.pages.SignUpPage;
@@ -20,7 +21,9 @@ public class HomePageTest {
     public static void SetupChromeDriver(){
         // Setup the Chrome driver for the whole class
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless","--no-sandbox");
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
     }
 
