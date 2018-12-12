@@ -42,24 +42,24 @@ public class HomePageTest {
 
     }
 
-    @Test
-    public void visitLoginPageFromHomePageTest(){
-
-        HomePage homePage = new HomePage(driver);
-        homePage.navigateTo();
-        LoginPage loginPage = homePage.clickLogin();
-        assertEquals("Please sign in",loginPage.getPageTitle());
-
-    }
-
-    @Test
-    public void visitSignUpPageFromHomePageTest(){
-
-        HomePage homePage = new HomePage(driver);
-        homePage.navigateTo();
-        SignUpPage signUpPage = homePage.clickSignUp();
-        assertEquals("Create an account",signUpPage.getPageTitle());
-
-    }
+//    @Test
+//    public void visitLoginPageFromHomePageTest(){
+//
+//        HomePage homePage = new HomePage(driver);
+//        homePage.navigateTo();
+//        LoginPage loginPage = homePage.clickLogin();
+//        assertEquals("Please sign in",loginPage.getPageTitle());
+//
+//    }
+//
+//    @Test
+//    public void visitSignUpPageFromHomePageTest(){
+//
+//        HomePage homePage = new HomePage(driver);
+//        homePage.navigateTo();
+//        SignUpPage signUpPage = homePage.clickSignUp();
+//        assertEquals("Create an account",signUpPage.getPageTitle());
+//
+//    }
 
 }
